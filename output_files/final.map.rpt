@@ -1,0 +1,875 @@
+Analysis & Synthesis report for final
+Tue Mar 21 19:01:18 2017
+Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Port Connectivity Checks: "start:go|kbInput:kbIn"
+ 14. Post-Synthesis Netlist Statistics for Top Partition
+ 15. Elapsed Time Per Partition
+ 16. Analysis & Synthesis Messages
+ 17. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Tue Mar 21 19:01:18 2017       ;
+; Quartus Prime Version              ; 16.0.0 Build 211 04/27/2016 SJ Lite Edition ;
+; Revision Name                      ; final                                       ;
+; Top-level Entity Name              ; final                                       ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 10,204                                      ;
+;     Total combinational functions  ; 10,203                                      ;
+;     Dedicated logic registers      ; 2,300                                       ;
+; Total registers                    ; 2300                                        ;
+; Total pins                         ; 52                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP4CE115F29C7      ;                    ;
+; Top-level entity name                                                      ; final              ; final              ;
+; Family name                                                                ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                 ;
++----------------------------------+-----------------+------------------------+------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                   ; Library ;
++----------------------------------+-----------------+------------------------+------------------------------------------------+---------+
+; mar14_7_44pm.v                   ; yes             ; User Verilog HDL File  ; /cmshome/shahid41/Desktop/final/mar14_7_44pm.v ;         ;
++----------------------------------+-----------------+------------------------+------------------------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimated Total logic elements              ; 10,204      ;
+;                                             ;             ;
+; Total combinational functions               ; 10203       ;
+; Logic element usage by number of LUT inputs ;             ;
+;     -- 4 input functions                    ; 677         ;
+;     -- 3 input functions                    ; 4522        ;
+;     -- <=2 input functions                  ; 5004        ;
+;                                             ;             ;
+; Logic elements by mode                      ;             ;
+;     -- normal mode                          ; 3945        ;
+;     -- arithmetic mode                      ; 6258        ;
+;                                             ;             ;
+; Total registers                             ; 2300        ;
+;     -- Dedicated logic registers            ; 2300        ;
+;     -- I/O registers                        ; 0           ;
+;                                             ;             ;
+; I/O pins                                    ; 52          ;
+;                                             ;             ;
+; Embedded Multiplier 9-bit elements          ; 0           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; SW[0]~input ;
+; Maximum fan-out                             ; 2216        ;
+; Total fan-out                               ; 32660       ;
+; Average fan-out                             ; 2.59        ;
++---------------------------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                      ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------+-------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                ; Entity Name ; Library Name ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------+-------------+--------------+
+; |final                     ; 10203 (1)         ; 2300 (0)     ; 0           ; 0            ; 0       ; 0         ; 52   ; 0            ; |final                             ; final       ; work         ;
+;    |start:go|              ; 10202 (10061)     ; 2300 (2227)  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final|start:go                    ; start       ; work         ;
+;       |VGA_gen:gen1|       ; 45 (45)           ; 23 (23)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final|start:go|VGA_gen:gen1       ; VGA_gen     ; work         ;
+;       |clk_reduce:reduce1| ; 1 (1)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final|start:go|clk_reduce:reduce1 ; clk_reduce  ; work         ;
+;       |kbInput:kbIn|       ; 12 (12)           ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final|start:go|kbInput:kbIn       ; kbInput     ; work         ;
+;       |randomGrid:rand1|   ; 45 (45)           ; 22 (22)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final|start:go|randomGrid:rand1   ; randomGrid  ; work         ;
+;       |updateClk:UPDATE|   ; 38 (38)           ; 22 (22)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final|start:go|updateClk:UPDATE   ; updateClk   ; work         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                    ;
++-----------------------------------------+---------------------------------------------+
+; Register name                           ; Reason for Removal                          ;
++-----------------------------------------+---------------------------------------------+
+; start:go|randomGrid:rand1|rand_X[0]     ; Stuck at GND due to stuck port data_in      ;
+; start:go|randomGrid:rand1|rand_Y[0]     ; Stuck at GND due to stuck port data_in      ;
+; start:go|VGA_R[2,3,6]                   ; Merged with start:go|VGA_R[7]               ;
+; start:go|VGA_B[0,1,5]                   ; Merged with start:go|VGA_R[5]               ;
+; start:go|VGA_R[0,4]                     ; Merged with start:go|VGA_R[5]               ;
+; start:go|VGA_B[4]                       ; Merged with start:go|VGA_R[5]               ;
+; start:go|VGA_R[1]                       ; Merged with start:go|VGA_R[5]               ;
+; start:go|VGA_G[0..6]                    ; Merged with start:go|VGA_G[7]               ;
+; start:go|VGA_B[2,3,6]                   ; Merged with start:go|VGA_B[7]               ;
+; start:go|snakeY[6][0]                   ; Merged with start:go|snakeX[6][0]           ;
+; start:go|snakeY[5][0]                   ; Merged with start:go|snakeX[5][0]           ;
+; start:go|snakeY[4][0]                   ; Merged with start:go|snakeX[4][0]           ;
+; start:go|snakeY[3][0]                   ; Merged with start:go|snakeX[3][0]           ;
+; start:go|snakeY[2][0]                   ; Merged with start:go|snakeX[2][0]           ;
+; start:go|snakeY[1][0]                   ; Merged with start:go|snakeX[1][0]           ;
+; start:go|appleY[0]                      ; Merged with start:go|appleX[0]              ;
+; start:go|snakeY[7][0]                   ; Merged with start:go|snakeX[7][0]           ;
+; start:go|snakeY[8][0]                   ; Merged with start:go|snakeX[8][0]           ;
+; start:go|snakeY[9][0]                   ; Merged with start:go|snakeX[9][0]           ;
+; start:go|snakeY[10][0]                  ; Merged with start:go|snakeX[10][0]          ;
+; start:go|snakeY[11][0]                  ; Merged with start:go|snakeX[11][0]          ;
+; start:go|snakeY[12][0]                  ; Merged with start:go|snakeX[12][0]          ;
+; start:go|snakeY[13][0]                  ; Merged with start:go|snakeX[13][0]          ;
+; start:go|snakeY[14][0]                  ; Merged with start:go|snakeX[14][0]          ;
+; start:go|snakeY[15][0]                  ; Merged with start:go|snakeX[15][0]          ;
+; start:go|snakeY[16][0]                  ; Merged with start:go|snakeX[16][0]          ;
+; start:go|snakeY[17][0]                  ; Merged with start:go|snakeX[17][0]          ;
+; start:go|snakeY[18][0]                  ; Merged with start:go|snakeX[18][0]          ;
+; start:go|snakeY[19][0]                  ; Merged with start:go|snakeX[19][0]          ;
+; start:go|snakeY[20][0]                  ; Merged with start:go|snakeX[20][0]          ;
+; start:go|snakeY[21][0]                  ; Merged with start:go|snakeX[21][0]          ;
+; start:go|snakeY[22][0]                  ; Merged with start:go|snakeX[22][0]          ;
+; start:go|snakeY[23][0]                  ; Merged with start:go|snakeX[23][0]          ;
+; start:go|snakeY[24][0]                  ; Merged with start:go|snakeX[24][0]          ;
+; start:go|snakeY[25][0]                  ; Merged with start:go|snakeX[25][0]          ;
+; start:go|snakeY[26][0]                  ; Merged with start:go|snakeX[26][0]          ;
+; start:go|snakeY[27][0]                  ; Merged with start:go|snakeX[27][0]          ;
+; start:go|snakeY[28][0]                  ; Merged with start:go|snakeX[28][0]          ;
+; start:go|snakeY[29][0]                  ; Merged with start:go|snakeX[29][0]          ;
+; start:go|snakeY[30][0]                  ; Merged with start:go|snakeX[30][0]          ;
+; start:go|snakeY[31][0]                  ; Merged with start:go|snakeX[31][0]          ;
+; start:go|snakeY[32][0]                  ; Merged with start:go|snakeX[32][0]          ;
+; start:go|snakeY[33][0]                  ; Merged with start:go|snakeX[33][0]          ;
+; start:go|snakeY[34][0]                  ; Merged with start:go|snakeX[34][0]          ;
+; start:go|snakeY[35][0]                  ; Merged with start:go|snakeX[35][0]          ;
+; start:go|snakeY[36][0]                  ; Merged with start:go|snakeX[36][0]          ;
+; start:go|snakeY[37][0]                  ; Merged with start:go|snakeX[37][0]          ;
+; start:go|snakeY[38][0]                  ; Merged with start:go|snakeX[38][0]          ;
+; start:go|snakeY[39][0]                  ; Merged with start:go|snakeX[39][0]          ;
+; start:go|snakeY[40][0]                  ; Merged with start:go|snakeX[40][0]          ;
+; start:go|snakeY[41][0]                  ; Merged with start:go|snakeX[41][0]          ;
+; start:go|snakeY[42][0]                  ; Merged with start:go|snakeX[42][0]          ;
+; start:go|snakeY[43][0]                  ; Merged with start:go|snakeX[43][0]          ;
+; start:go|snakeY[44][0]                  ; Merged with start:go|snakeX[44][0]          ;
+; start:go|snakeY[45][0]                  ; Merged with start:go|snakeX[45][0]          ;
+; start:go|snakeY[46][0]                  ; Merged with start:go|snakeX[46][0]          ;
+; start:go|snakeY[47][0]                  ; Merged with start:go|snakeX[47][0]          ;
+; start:go|snakeY[48][0]                  ; Merged with start:go|snakeX[48][0]          ;
+; start:go|snakeY[49][0]                  ; Merged with start:go|snakeX[49][0]          ;
+; start:go|snakeY[50][0]                  ; Merged with start:go|snakeX[50][0]          ;
+; start:go|snakeY[51][0]                  ; Merged with start:go|snakeX[51][0]          ;
+; start:go|snakeY[52][0]                  ; Merged with start:go|snakeX[52][0]          ;
+; start:go|snakeY[53][0]                  ; Merged with start:go|snakeX[53][0]          ;
+; start:go|snakeY[54][0]                  ; Merged with start:go|snakeX[54][0]          ;
+; start:go|snakeY[55][0]                  ; Merged with start:go|snakeX[55][0]          ;
+; start:go|snakeY[56][0]                  ; Merged with start:go|snakeX[56][0]          ;
+; start:go|snakeY[57][0]                  ; Merged with start:go|snakeX[57][0]          ;
+; start:go|snakeY[58][0]                  ; Merged with start:go|snakeX[58][0]          ;
+; start:go|snakeY[59][0]                  ; Merged with start:go|snakeX[59][0]          ;
+; start:go|snakeY[60][0]                  ; Merged with start:go|snakeX[60][0]          ;
+; start:go|snakeY[61][0]                  ; Merged with start:go|snakeX[61][0]          ;
+; start:go|snakeY[62][0]                  ; Merged with start:go|snakeX[62][0]          ;
+; start:go|snakeY[63][0]                  ; Merged with start:go|snakeX[63][0]          ;
+; start:go|snakeY[64][0]                  ; Merged with start:go|snakeX[64][0]          ;
+; start:go|snakeY[65][0]                  ; Merged with start:go|snakeX[65][0]          ;
+; start:go|snakeY[66][0]                  ; Merged with start:go|snakeX[66][0]          ;
+; start:go|snakeY[67][0]                  ; Merged with start:go|snakeX[67][0]          ;
+; start:go|snakeY[68][0]                  ; Merged with start:go|snakeX[68][0]          ;
+; start:go|snakeY[69][0]                  ; Merged with start:go|snakeX[69][0]          ;
+; start:go|snakeY[70][0]                  ; Merged with start:go|snakeX[70][0]          ;
+; start:go|snakeY[71][0]                  ; Merged with start:go|snakeX[71][0]          ;
+; start:go|snakeY[72][0]                  ; Merged with start:go|snakeX[72][0]          ;
+; start:go|snakeY[73][0]                  ; Merged with start:go|snakeX[73][0]          ;
+; start:go|snakeY[74][0]                  ; Merged with start:go|snakeX[74][0]          ;
+; start:go|snakeY[75][0]                  ; Merged with start:go|snakeX[75][0]          ;
+; start:go|snakeY[76][0]                  ; Merged with start:go|snakeX[76][0]          ;
+; start:go|snakeY[77][0]                  ; Merged with start:go|snakeX[77][0]          ;
+; start:go|snakeY[78][0]                  ; Merged with start:go|snakeX[78][0]          ;
+; start:go|snakeY[79][0]                  ; Merged with start:go|snakeX[79][0]          ;
+; start:go|snakeY[80][0]                  ; Merged with start:go|snakeX[80][0]          ;
+; start:go|snakeY[81][0]                  ; Merged with start:go|snakeX[81][0]          ;
+; start:go|snakeY[82][0]                  ; Merged with start:go|snakeX[82][0]          ;
+; start:go|snakeY[83][0]                  ; Merged with start:go|snakeX[83][0]          ;
+; start:go|snakeY[84][0]                  ; Merged with start:go|snakeX[84][0]          ;
+; start:go|snakeY[85][0]                  ; Merged with start:go|snakeX[85][0]          ;
+; start:go|snakeY[86][0]                  ; Merged with start:go|snakeX[86][0]          ;
+; start:go|snakeY[87][0]                  ; Merged with start:go|snakeX[87][0]          ;
+; start:go|snakeY[88][0]                  ; Merged with start:go|snakeX[88][0]          ;
+; start:go|snakeY[89][0]                  ; Merged with start:go|snakeX[89][0]          ;
+; start:go|snakeY[90][0]                  ; Merged with start:go|snakeX[90][0]          ;
+; start:go|snakeY[91][0]                  ; Merged with start:go|snakeX[91][0]          ;
+; start:go|snakeY[92][0]                  ; Merged with start:go|snakeX[92][0]          ;
+; start:go|snakeY[93][0]                  ; Merged with start:go|snakeX[93][0]          ;
+; start:go|snakeY[94][0]                  ; Merged with start:go|snakeX[94][0]          ;
+; start:go|snakeY[95][0]                  ; Merged with start:go|snakeX[95][0]          ;
+; start:go|snakeY[96][0]                  ; Merged with start:go|snakeX[96][0]          ;
+; start:go|snakeY[97][0]                  ; Merged with start:go|snakeX[97][0]          ;
+; start:go|snakeY[98][0]                  ; Merged with start:go|snakeX[98][0]          ;
+; start:go|snakeY[99][0]                  ; Merged with start:go|snakeX[99][0]          ;
+; start:go|snakeY[100][0]                 ; Merged with start:go|snakeX[100][0]         ;
+; start:go|snakeY[101][0]                 ; Merged with start:go|snakeX[101][0]         ;
+; start:go|snakeY[102][0]                 ; Merged with start:go|snakeX[102][0]         ;
+; start:go|snakeY[103][0]                 ; Merged with start:go|snakeX[103][0]         ;
+; start:go|snakeY[104][0]                 ; Merged with start:go|snakeX[104][0]         ;
+; start:go|snakeY[105][0]                 ; Merged with start:go|snakeX[105][0]         ;
+; start:go|snakeY[106][0]                 ; Merged with start:go|snakeX[106][0]         ;
+; start:go|snakeY[107][0]                 ; Merged with start:go|snakeX[107][0]         ;
+; start:go|snakeY[108][0]                 ; Merged with start:go|snakeX[108][0]         ;
+; start:go|snakeY[109][0]                 ; Merged with start:go|snakeX[109][0]         ;
+; start:go|snakeY[110][0]                 ; Merged with start:go|snakeX[110][0]         ;
+; start:go|snakeY[111][0]                 ; Merged with start:go|snakeX[111][0]         ;
+; start:go|snakeY[112][0]                 ; Merged with start:go|snakeX[112][0]         ;
+; start:go|snakeY[113][0]                 ; Merged with start:go|snakeX[113][0]         ;
+; start:go|snakeY[114][0]                 ; Merged with start:go|snakeX[114][0]         ;
+; start:go|snakeY[115][0]                 ; Merged with start:go|snakeX[115][0]         ;
+; start:go|snakeY[116][0]                 ; Merged with start:go|snakeX[116][0]         ;
+; start:go|snakeY[117][0]                 ; Merged with start:go|snakeX[117][0]         ;
+; start:go|snakeY[118][0]                 ; Merged with start:go|snakeX[118][0]         ;
+; start:go|snakeY[119][0]                 ; Merged with start:go|snakeX[119][0]         ;
+; start:go|snakeY[120][0]                 ; Merged with start:go|snakeX[120][0]         ;
+; start:go|snakeY[121][0]                 ; Merged with start:go|snakeX[121][0]         ;
+; start:go|snakeY[122][0]                 ; Merged with start:go|snakeX[122][0]         ;
+; start:go|snakeY[123][0]                 ; Merged with start:go|snakeX[123][0]         ;
+; start:go|snakeY[124][0]                 ; Merged with start:go|snakeX[124][0]         ;
+; start:go|snakeY[125][0]                 ; Merged with start:go|snakeX[125][0]         ;
+; start:go|snakeY[126][0]                 ; Merged with start:go|snakeX[126][0]         ;
+; start:go|snakeY[127][0]                 ; Merged with start:go|snakeX[127][0]         ;
+; start:go|appleX[0]                      ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[1][0]                   ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[2][0]                   ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[3][0]                   ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[4][0]                   ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[5][0]                   ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[6][0]                   ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[7][0]                   ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[8][0]                   ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[9][0]                   ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[10][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[11][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[12][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[13][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[14][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[15][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[16][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[17][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[18][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[19][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[20][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[21][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[22][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[23][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[24][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[25][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[26][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[27][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[28][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[29][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[30][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[31][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[32][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[33][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[34][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[35][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[36][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[37][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[38][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[39][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[40][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[41][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[42][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[43][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[44][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[45][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[46][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[47][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[48][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[49][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[50][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[51][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[52][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[53][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[54][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[55][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[56][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[57][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[58][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[59][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[60][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[61][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[62][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[63][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[64][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[65][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[66][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[67][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[68][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[69][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[70][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[71][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[72][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[73][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[74][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[75][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[76][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[77][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[78][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[79][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[80][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[81][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[82][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[83][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[84][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[85][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[86][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[87][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[88][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[89][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[90][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[91][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[92][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[93][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[94][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[95][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[96][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[97][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[98][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[99][0]                  ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[100][0]                 ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[101][0]                 ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[102][0]                 ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[103][0]                 ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[104][0]                 ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[105][0]                 ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[106][0]                 ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[107][0]                 ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[108][0]                 ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[109][0]                 ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[110][0]                 ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[111][0]                 ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[112][0]                 ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[113][0]                 ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[114][0]                 ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[115][0]                 ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[116][0]                 ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[117][0]                 ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[118][0]                 ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[119][0]                 ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[120][0]                 ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[121][0]                 ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[122][0]                 ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[123][0]                 ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[124][0]                 ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[125][0]                 ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[126][0]                 ; Stuck at GND due to stuck port data_in      ;
+; start:go|snakeX[127][0]                 ; Stuck at GND due to stuck port data_in      ;
+; start:go|randomGrid:rand1|pointY[0]     ; Merged with start:go|appleCount[0]          ;
+; start:go|randomGrid:rand1|pointX[0]     ; Merged with start:go|appleCount[0]          ;
+; start:go|randomGrid:rand1|pointY[1]     ; Merged with start:go|appleCount[1]          ;
+; start:go|randomGrid:rand1|pointY[2]     ; Merged with start:go|appleCount[2]          ;
+; start:go|randomGrid:rand1|pointY[3]     ; Merged with start:go|appleCount[3]          ;
+; start:go|randomGrid:rand1|pointY[4]     ; Merged with start:go|appleCount[4]          ;
+; start:go|randomGrid:rand1|pointY[5]     ; Merged with start:go|appleCount[5]          ;
+; start:go|snakeX[127][9]                 ; Lost fanout                                 ;
+; start:go|snakeX[127][8]                 ; Lost fanout                                 ;
+; start:go|snakeX[127][7]                 ; Lost fanout                                 ;
+; start:go|snakeX[127][6]                 ; Lost fanout                                 ;
+; start:go|snakeX[127][5]                 ; Lost fanout                                 ;
+; start:go|snakeX[127][4]                 ; Lost fanout                                 ;
+; start:go|snakeX[127][3]                 ; Lost fanout                                 ;
+; start:go|snakeX[127][2]                 ; Lost fanout                                 ;
+; start:go|snakeX[127][1]                 ; Lost fanout                                 ;
+; start:go|snakeY[127][8]                 ; Lost fanout                                 ;
+; start:go|snakeY[127][7]                 ; Lost fanout                                 ;
+; start:go|snakeY[127][6]                 ; Lost fanout                                 ;
+; start:go|snakeY[127][5]                 ; Lost fanout                                 ;
+; start:go|snakeY[127][4]                 ; Lost fanout                                 ;
+; start:go|snakeY[127][3]                 ; Lost fanout                                 ;
+; start:go|snakeY[127][2]                 ; Lost fanout                                 ;
+; start:go|snakeY[127][1]                 ; Lost fanout                                 ;
+; start:go|kbInput:kbIn|direction[0]      ; Stuck at GND due to stuck port data_in      ;
+; start:go|updateClk:UPDATE|count[0]      ; Merged with start:go|clk_reduce:reduce1|q   ;
+; start:go|appleCount[0]                  ; Merged with start:go|VGA_gen:gen1|xCount[0] ;
+; Total Number of Removed Registers = 305 ;                                             ;
++-----------------------------------------+---------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                  ;
++-------------------------------------+---------------------------+----------------------------------------------------------------------------+
+; Register name                       ; Reason for Removal        ; Registers Removed due to This Register                                     ;
++-------------------------------------+---------------------------+----------------------------------------------------------------------------+
+; start:go|snakeX[1][0]               ; Stuck at GND              ; start:go|snakeX[2][0], start:go|snakeX[3][0], start:go|snakeX[4][0],       ;
+;                                     ; due to stuck port data_in ; start:go|snakeX[5][0], start:go|snakeX[6][0], start:go|snakeX[7][0],       ;
+;                                     ;                           ; start:go|snakeX[8][0], start:go|snakeX[9][0], start:go|snakeX[10][0],      ;
+;                                     ;                           ; start:go|snakeX[11][0], start:go|snakeX[12][0], start:go|snakeX[13][0],    ;
+;                                     ;                           ; start:go|snakeX[14][0], start:go|snakeX[15][0], start:go|snakeX[16][0],    ;
+;                                     ;                           ; start:go|snakeX[17][0], start:go|snakeX[18][0], start:go|snakeX[19][0],    ;
+;                                     ;                           ; start:go|snakeX[20][0], start:go|snakeX[21][0], start:go|snakeX[22][0],    ;
+;                                     ;                           ; start:go|snakeX[23][0], start:go|snakeX[24][0], start:go|snakeX[25][0],    ;
+;                                     ;                           ; start:go|snakeX[26][0], start:go|snakeX[27][0], start:go|snakeX[28][0],    ;
+;                                     ;                           ; start:go|snakeX[29][0], start:go|snakeX[30][0], start:go|snakeX[31][0],    ;
+;                                     ;                           ; start:go|snakeX[32][0], start:go|snakeX[33][0], start:go|snakeX[34][0],    ;
+;                                     ;                           ; start:go|snakeX[35][0], start:go|snakeX[36][0], start:go|snakeX[37][0],    ;
+;                                     ;                           ; start:go|snakeX[38][0], start:go|snakeX[39][0], start:go|snakeX[40][0],    ;
+;                                     ;                           ; start:go|snakeX[41][0], start:go|snakeX[42][0], start:go|snakeX[43][0],    ;
+;                                     ;                           ; start:go|snakeX[44][0], start:go|snakeX[45][0], start:go|snakeX[46][0],    ;
+;                                     ;                           ; start:go|snakeX[47][0], start:go|snakeX[48][0], start:go|snakeX[49][0],    ;
+;                                     ;                           ; start:go|snakeX[50][0], start:go|snakeX[51][0], start:go|snakeX[52][0],    ;
+;                                     ;                           ; start:go|snakeX[53][0], start:go|snakeX[54][0], start:go|snakeX[55][0],    ;
+;                                     ;                           ; start:go|snakeX[56][0], start:go|snakeX[57][0], start:go|snakeX[58][0],    ;
+;                                     ;                           ; start:go|snakeX[59][0], start:go|snakeX[60][0], start:go|snakeX[61][0],    ;
+;                                     ;                           ; start:go|snakeX[62][0], start:go|snakeX[63][0], start:go|snakeX[64][0],    ;
+;                                     ;                           ; start:go|snakeX[65][0], start:go|snakeX[66][0], start:go|snakeX[67][0],    ;
+;                                     ;                           ; start:go|snakeX[68][0], start:go|snakeX[69][0], start:go|snakeX[70][0],    ;
+;                                     ;                           ; start:go|snakeX[71][0], start:go|snakeX[72][0], start:go|snakeX[73][0],    ;
+;                                     ;                           ; start:go|snakeX[74][0], start:go|snakeX[75][0], start:go|snakeX[76][0],    ;
+;                                     ;                           ; start:go|snakeX[77][0], start:go|snakeX[78][0], start:go|snakeX[79][0],    ;
+;                                     ;                           ; start:go|snakeX[80][0], start:go|snakeX[81][0], start:go|snakeX[82][0],    ;
+;                                     ;                           ; start:go|snakeX[83][0], start:go|snakeX[84][0], start:go|snakeX[85][0],    ;
+;                                     ;                           ; start:go|snakeX[86][0], start:go|snakeX[87][0], start:go|snakeX[88][0],    ;
+;                                     ;                           ; start:go|snakeX[89][0], start:go|snakeX[90][0], start:go|snakeX[91][0],    ;
+;                                     ;                           ; start:go|snakeX[92][0], start:go|snakeX[93][0], start:go|snakeX[94][0],    ;
+;                                     ;                           ; start:go|snakeX[95][0], start:go|snakeX[96][0], start:go|snakeX[97][0],    ;
+;                                     ;                           ; start:go|snakeX[98][0], start:go|snakeX[99][0], start:go|snakeX[100][0],   ;
+;                                     ;                           ; start:go|snakeX[101][0], start:go|snakeX[102][0], start:go|snakeX[103][0], ;
+;                                     ;                           ; start:go|snakeX[104][0], start:go|snakeX[105][0], start:go|snakeX[106][0], ;
+;                                     ;                           ; start:go|snakeX[107][0], start:go|snakeX[108][0], start:go|snakeX[109][0], ;
+;                                     ;                           ; start:go|snakeX[110][0], start:go|snakeX[111][0], start:go|snakeX[112][0], ;
+;                                     ;                           ; start:go|snakeX[113][0], start:go|snakeX[114][0], start:go|snakeX[115][0], ;
+;                                     ;                           ; start:go|snakeX[116][0], start:go|snakeX[117][0], start:go|snakeX[118][0], ;
+;                                     ;                           ; start:go|snakeX[119][0], start:go|snakeX[120][0], start:go|snakeX[121][0], ;
+;                                     ;                           ; start:go|snakeX[122][0], start:go|snakeX[123][0], start:go|snakeX[124][0], ;
+;                                     ;                           ; start:go|snakeX[125][0], start:go|snakeX[126][0], start:go|snakeX[127][0]  ;
+; start:go|randomGrid:rand1|rand_X[0] ; Stuck at GND              ; start:go|appleX[0]                                                         ;
+;                                     ; due to stuck port data_in ;                                                                            ;
++-------------------------------------+---------------------------+----------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 2300  ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 16    ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 2197  ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; start:go|appleCount[1]                 ; 6       ;
+; start:go|appleCount[3]                 ; 5       ;
+; Total number of inverted registers = 2 ;         ;
++----------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[64][3]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[32][1]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[16][7]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[8][6]               ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[4][1]               ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[2][1]               ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[1][3]               ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |final|start:go|size[5]                    ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |final|start:go|randomGrid:rand1|rand_Y[8] ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; Yes        ; |final|start:go|randomGrid:rand1|rand_X[4] ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[126][7]             ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[125][9]             ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[124][7]             ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[123][9]             ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[122][5]             ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[121][5]             ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[120][1]             ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[119][8]             ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[118][1]             ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[117][8]             ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[116][7]             ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[115][1]             ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[114][1]             ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[113][8]             ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[112][7]             ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[111][7]             ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[110][8]             ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[109][7]             ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[108][1]             ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[107][4]             ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[106][8]             ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[105][7]             ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[104][6]             ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[103][4]             ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[102][1]             ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[101][8]             ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[100][1]             ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[99][1]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[98][8]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[97][2]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[96][1]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[95][5]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[94][6]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[93][8]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[92][6]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[91][1]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[90][5]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[89][4]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[88][1]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[87][8]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[86][2]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[85][9]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[84][7]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[83][7]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[82][9]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[81][7]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[80][9]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[79][8]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[78][7]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[77][8]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[76][1]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[75][7]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[74][6]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[73][7]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[72][7]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[71][2]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[70][2]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[69][6]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[68][5]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[67][8]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[66][2]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[65][8]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[63][2]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[62][4]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[61][2]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[60][1]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[59][6]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[58][7]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[57][7]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[56][1]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[55][3]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[54][2]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[53][8]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[52][7]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[51][5]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[50][7]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[49][1]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[48][5]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[47][8]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[46][2]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[45][6]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[44][7]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[43][6]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[42][1]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[41][7]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[40][1]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[39][3]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[38][8]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[37][8]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[36][7]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[35][8]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[34][6]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[33][1]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[31][1]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[30][1]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[29][7]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[28][2]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[27][5]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[26][1]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[25][4]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[24][4]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[23][8]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[22][1]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[21][9]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[20][2]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[19][9]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[18][7]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[17][4]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[15][6]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[14][1]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[13][3]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[12][1]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[11][7]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[10][7]              ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[9][7]               ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[7][4]               ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[6][8]               ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeX[5][9]               ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |final|start:go|snakeY[3][2]               ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |final|start:go|appleY[2]                  ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |final|start:go|VGA_R[7]                   ;
+; 32:1               ; 9 bits    ; 189 LEs       ; 9 LEs                ; 180 LEs                ; Yes        ; |final|start:go|snakeX[0][3]               ;
+; 32:1               ; 8 bits    ; 168 LEs       ; 8 LEs                ; 160 LEs                ; Yes        ; |final|start:go|snakeY[0][1]               ;
+; 6:1                ; 10 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |final|start:go|appleX[6]                  ;
+; 20:1               ; 5 bits    ; 65 LEs        ; 10 LEs               ; 55 LEs                 ; Yes        ; |final|start:go|kbInput:kbIn|direction[2]  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "start:go|kbInput:kbIn"                                                               ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; reset ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 52                          ;
+; cycloneiii_ff         ; 2300                        ;
+;     ENA               ; 2181                        ;
+;     ENA SLD           ; 16                          ;
+;     plain             ; 103                         ;
+; cycloneiii_lcell_comb ; 10205                       ;
+;     arith             ; 6258                        ;
+;         2 data inputs ; 2020                        ;
+;         3 data inputs ; 4238                        ;
+;     normal            ; 3947                        ;
+;         0 data inputs ; 259                         ;
+;         1 data inputs ; 14                          ;
+;         2 data inputs ; 2713                        ;
+;         3 data inputs ; 284                         ;
+;         4 data inputs ; 677                         ;
+;                       ;                             ;
+; Max LUT depth         ; 54.70                       ;
+; Average LUT depth     ; 26.96                       ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:13     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
+    Info: Processing started: Tue Mar 21 19:00:55 2017
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off final -c final
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Warning (10463): Verilog HDL Declaration warning at mar14_7_44pm.v(2): "final" is SystemVerilog-2005 keyword File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 2
+Info (12021): Found 8 design units, including 8 entities, in source file mar14_7_44pm.v
+    Info (12023): Found entity 1: final File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 2
+    Info (12023): Found entity 2: start File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 38
+    Info (12023): Found entity 3: clk_reduce File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 228
+    Info (12023): Found entity 4: VGA_gen File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 244
+    Info (12023): Found entity 5: appleLocation File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 301
+    Info (12023): Found entity 6: randomGrid File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 325
+    Info (12023): Found entity 7: kbInput File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 358
+    Info (12023): Found entity 8: updateClk File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 425
+Info (12127): Elaborating entity "final" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at mar14_7_44pm.v(32): object "maxSize" assigned a value but never read File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 32
+Info (12128): Elaborating entity "start" for hierarchy "start:go" File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 34
+Warning (10036): Verilog HDL or VHDL warning at mar14_7_44pm.v(69): object "maxSize" assigned a value but never read File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 69
+Warning (10230): Verilog HDL assignment warning at mar14_7_44pm.v(144): truncated value with size 32 to match size of target (9) File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 144
+Warning (10230): Verilog HDL assignment warning at mar14_7_44pm.v(145): truncated value with size 32 to match size of target (10) File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 145
+Warning (10230): Verilog HDL assignment warning at mar14_7_44pm.v(146): truncated value with size 32 to match size of target (9) File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 146
+Warning (10230): Verilog HDL assignment warning at mar14_7_44pm.v(147): truncated value with size 32 to match size of target (10) File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 147
+Info (10264): Verilog HDL Case Statement information at mar14_7_44pm.v(143): all case item expressions in this case statement are onehot File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 143
+Warning (10230): Verilog HDL assignment warning at mar14_7_44pm.v(186): truncated value with size 32 to match size of target (7) File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 186
+Warning (10030): Net "snakeX[0][0]" at mar14_7_44pm.v(62) has no driver or initial value, using a default initial value '0' File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 62
+Warning (10030): Net "snakeY[0][0]" at mar14_7_44pm.v(63) has no driver or initial value, using a default initial value '0' File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 63
+Info (12128): Elaborating entity "clk_reduce" for hierarchy "start:go|clk_reduce:reduce1" File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 72
+Info (12128): Elaborating entity "VGA_gen" for hierarchy "start:go|VGA_gen:gen1" File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 73
+Warning (10230): Verilog HDL assignment warning at mar14_7_44pm.v(268): truncated value with size 32 to match size of target (10) File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 268
+Warning (10230): Verilog HDL assignment warning at mar14_7_44pm.v(279): truncated value with size 32 to match size of target (10) File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 279
+Info (12128): Elaborating entity "randomGrid" for hierarchy "start:go|randomGrid:rand1" File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 74
+Warning (10230): Verilog HDL assignment warning at mar14_7_44pm.v(332): truncated value with size 32 to match size of target (6) File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 332
+Warning (10230): Verilog HDL assignment warning at mar14_7_44pm.v(334): truncated value with size 32 to match size of target (6) File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 334
+Warning (10230): Verilog HDL assignment warning at mar14_7_44pm.v(342): truncated value with size 32 to match size of target (10) File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 342
+Warning (10230): Verilog HDL assignment warning at mar14_7_44pm.v(352): truncated value with size 32 to match size of target (9) File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 352
+Info (12128): Elaborating entity "kbInput" for hierarchy "start:go|kbInput:kbIn" File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 75
+Warning (10036): Verilog HDL or VHDL warning at mar14_7_44pm.v(366): object "recordNext" assigned a value but never read File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 366
+Warning (10036): Verilog HDL or VHDL warning at mar14_7_44pm.v(367): object "count" assigned a value but never read File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 367
+Info (10264): Verilog HDL Case Statement information at mar14_7_44pm.v(384): all case item expressions in this case statement are onehot File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 384
+Info (12128): Elaborating entity "updateClk" for hierarchy "start:go|updateClk:UPDATE" File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 76
+Warning (10230): Verilog HDL assignment warning at mar14_7_44pm.v(432): truncated value with size 32 to match size of target (22) File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 432
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 17 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file /cmshome/shahid41/Desktop/final/output_files/final.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 17 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "SW[1]" File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 24
+    Warning (15610): No output dependent on input pin "SW[2]" File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 24
+    Warning (15610): No output dependent on input pin "SW[3]" File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 24
+    Warning (15610): No output dependent on input pin "SW[4]" File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 24
+    Warning (15610): No output dependent on input pin "SW[5]" File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 24
+    Warning (15610): No output dependent on input pin "SW[6]" File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 24
+    Warning (15610): No output dependent on input pin "SW[7]" File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 24
+    Warning (15610): No output dependent on input pin "SW[8]" File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 24
+    Warning (15610): No output dependent on input pin "SW[9]" File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 24
+    Warning (15610): No output dependent on input pin "SW[10]" File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 24
+    Warning (15610): No output dependent on input pin "SW[11]" File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 24
+    Warning (15610): No output dependent on input pin "SW[12]" File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 24
+    Warning (15610): No output dependent on input pin "SW[13]" File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 24
+    Warning (15610): No output dependent on input pin "SW[14]" File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 24
+    Warning (15610): No output dependent on input pin "SW[15]" File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 24
+    Warning (15610): No output dependent on input pin "SW[16]" File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 24
+    Warning (15610): No output dependent on input pin "SW[17]" File: /cmshome/shahid41/Desktop/final/mar14_7_44pm.v Line: 24
+Info (21057): Implemented 10286 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 24 input pins
+    Info (21059): Implemented 28 output pins
+    Info (21061): Implemented 10234 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 38 warnings
+    Info: Peak virtual memory: 1289 megabytes
+    Info: Processing ended: Tue Mar 21 19:01:18 2017
+    Info: Elapsed time: 00:00:23
+    Info: Total CPU time (on all processors): 00:00:34
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in /cmshome/shahid41/Desktop/final/output_files/final.map.smsg.
+
+
